@@ -1,0 +1,8 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/sclnetwo/laundry-app
+    - /bin/cp -R * $DEPLOYPATH
+    - composer install --no-dev
+    - php artisan migrate --force
+    - php artisan config:cache
+    - php artisan route:cache
